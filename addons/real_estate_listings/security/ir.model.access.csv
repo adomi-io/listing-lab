@@ -9,5 +9,4 @@ access_real_estate_popularity_user,real_estate.popularity.user,model_real_estate
 access_real_estate_tax_history_user,real_estate.tax_history.user,model_real_estate_tax_history,base.group_user,1,1,1,1
 access_real_estate_feature_user,real_estate.feature.user,model_real_estate_feature,base.group_user,1,1,1,1
 access_real_estate_estimate_user,real_estate.estimate.user,model_real_estate_estimate,base.group_user,1,1,1,1
-access_property_import_wizard_user,property.import.wizard.user,model_property_import_wizard,base.group_user,1,1,1,1
 access_real_estate_school_user,real_estate.school.user,model_real_estate_school,base.group_user,1,1,1,1

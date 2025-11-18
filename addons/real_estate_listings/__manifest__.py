@@ -3,15 +3,15 @@
     'version': '1.0',
     'summary': 'Track and manage real estate property listings',
     'description': """
-                                                                                                                                                                                                                                              This module allows tracking real estate properties with details such as:
-                                                                                                                                                                                                                                              - House location
-                                                                                                                                                                                                                                              - Price and unit price
-                                                                                                                                                                                                                                              - Property features (bedrooms, basement, fixtures)
-                                                                                                                                                                                                                                              - Listing dates
-                                                                                                                                                                                                                                              - Property size and lot information
-                                                                                                                                                                                                                                              - Status tracking
-                                                                                                                                                                                                                                              - And more
-                                                                                                                                                                                                                                          """,
+                                                                                                                                                                                                                                                                 This module allows tracking real estate properties with details such as:
+                                                                                                                                                                                                                                                                 - House location
+                                                                                                                                                                                                                                                                 - Price and unit price
+                                                                                                                                                                                                                                                                 - Property features (bedrooms, basement, fixtures)
+                                                                                                                                                                                                                                                                 - Listing dates
+                                                                                                                                                                                                                                                                 - Property size and lot information
+                                                                                                                                                                                                                                                                 - Status tracking
+                                                                                                                                                                                                                                                                 - And more
+                                                                                                                                                                                                                                                             """,
     'category': 'Real Estate',
     'author': 'Listing Lab',
     'website': 'https://github.com/adomi-io/listing-lab',
@@ -34,7 +34,6 @@
         'views/view_tax_history.xml',
         'views/view_features.xml',
         'views/view_estimate.xml',
-        'views/view_property_import_wizard.xml',
         'views/menu_real_estate.xml',
     ],
     "images": [
