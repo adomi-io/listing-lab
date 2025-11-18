@@ -70,6 +70,8 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     environment:
+      ODOO_DB_NAME: ${ODOO_DB_NAME:-listing_lab}
+      ODOO_API_KEY: ${ODOO_API_KEY}
       RABBITMQ_HOST: rabbitmq
       RABBITMQ_PORT: 5672
       RABBITMQ_USER: ${RABBITMQ_USER:-guest}
@@ -78,8 +80,6 @@ services:
       RABBITMQ_EXCHANGE: ${RABBITMQ_EXCHANGE:-property_exchange}
       RABBITMQ_ROUTING_KEY: ${RABBITMQ_ROUTING_KEY:-property.scrape}
       ODOO_URL: http://listing_lab:8069
-      ODOO_DB_NAME: ${ODOO_DB_NAME:-listing_lab}
-      ODOO_API_KEY: ${ODOO_API_KEY}
     volumes:
       - ./scripts/real_estate_scraper:/app
     env_file:

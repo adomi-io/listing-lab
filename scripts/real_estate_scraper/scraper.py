@@ -1534,29 +1534,41 @@ if __name__ == "__main__":
 
     # Guard: Require ODOO_API_KEY to be set and non-empty
     if not ODOO_API_KEY or not str(ODOO_API_KEY).strip():
-        msg = (
-            "\n"
-            "============================================================\n"
-            "Missing Odoo API Key (ODOO_API_KEY).\n"
-            "\n"
-            "To generate an API key in Odoo:\n"
-            "  1) Click your profile avatar in the top-right.\n"
-            "  2) Open 'My Preferences'.\n"
-            "  3) Click 'Settings'.\n"
-            "  4) Open the 'Security' tab.\n"
-            "  5) Click 'Add API Key'.\n"
-            "  6) Enter your password (default is 'admin' on a fresh install).\n"
-            "  7) Set the key duration to 'Persistent Key' and give it a name.\n"
-            "  8) Copy the generated key.\n"
-            "\n"
-            "Then update your .env file to include:\n"
-            "  ODOO_API_KEY=<your_generated_key_here>\n"
-            "\n"
-            "After updating, restart the application.\n"
-            "\n"
-            "Read more: https://github.com/adomi-io/listing-lab\n"
-            "============================================================\n"
-        )
+        msg = """
+Scraper is not running
+============================================================
+Missing Odoo API Key (ODOO_API_KEY).
+
+If this is your first time running Listing Lab, this is a normal error.
+You need to give the scraper an API key, which you can only do once the web application
+is running.
+
+To generate an API key in Listing Lab:
+  1) Open your Listing Lab instance in a web browser (by default: http://localhost:8069).
+  2) Click your profile avatar in the top-right.
+  3) Open 'My Preferences'.
+  4) Click 'Settings'.
+  5) Open the 'Security' tab.
+  6) Click 'Add API Key'.
+  7) Enter your password (default is 'admin' on a fresh install).
+  8) Set the key duration to 'Persistent Key' and give it a name.
+  9) Copy the generated key.
+
+Then update your .env file to include:
+  ODOO_API_KEY=your_generated_key_here
+
+Or, in your docker-compose.yml, set the API key in the environment options
+real_estate_scraper:
+    ...
+    environment:
+        ODOO_API_KEY: "your_generated_key_here"
+
+After updating, restart the application.
+
+Read more: https://github.com/adomi-io/listing-lab
+============================================================
+        """
+
         print(msg)
         # Exit gracefully without stack trace so users can follow instructions
         sys.exit(0)

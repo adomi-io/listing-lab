@@ -1,19 +1,16 @@
 {
-    'name': 'Real Estate Listings',
+    'name': 'Adomi - Listing Lab',
     'version': '1.0',
     'summary': 'Track and manage real estate property listings',
     'description': """
-                                                                                                                                                                                                                                                                 This module allows tracking real estate properties with details such as:
-                                                                                                                                                                                                                                                                 - House location
-                                                                                                                                                                                                                                                                 - Price and unit price
-                                                                                                                                                                                                                                                                 - Property features (bedrooms, basement, fixtures)
-                                                                                                                                                                                                                                                                 - Listing dates
-                                                                                                                                                                                                                                                                 - Property size and lot information
-                                                                                                                                                                                                                                                                 - Status tracking
-                                                                                                                                                                                                                                                                 - And more
-                                                                                                                                                                                                                                                             """,
+                                      A simple, friendly place to keep track of homes you’re looking at. 
+                                      Save listings, add notes, tag photos, and share the short list with 
+                                      the people who matter. Listing Lab also keeps an eye on changes—like 
+                                      price cuts and status updates—so your view of a property stays current 
+                                      without constant refreshing.
+                                      """,
     'category': 'Real Estate',
-    'author': 'Listing Lab',
+    'author': 'Adomi Software, LLC',
     'website': 'https://github.com/adomi-io/listing-lab',
     'depends': [
         'base',

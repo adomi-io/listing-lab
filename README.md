@@ -32,26 +32,22 @@ run everything locally.
 
 To scrape a property, simply copy the address into the Address field, and click "Update Property"
 
-### Check out our open-source Odoo Docker image
-
-Are you looking to make apps like this easily?
-
-Adomi's Odoo Docker container makes developing and running Odoo
-applications fun and easy.
-
-### [Read more about our Odoo docker image](https://github.com/adomi-io/odoo).
+> Are you looking to make apps like this easily?
+> Adomi's Odoo Docker container makes developing and running Odoo
+> applications fun and easy.
+> **[Read more about our Odoo docker image](https://github.com/adomi-io/odoo)**.
 
 # Getting started
 
-### Docker
+## Docker
 
 This application is made to run via Docker.
 
 You can download Docker Desktop if you are on Windows or Mac
 
-#### [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
+**[Download Docker Desktop](https://www.docker.com/products/docker-desktop/)**
 
-### Configure your instance
+## Configure your instance
 
 Copy environment variables
 
@@ -61,7 +57,7 @@ You can run the following command:
 
 `cp .env.example .env`
 
-### Run the application
+## Run the application
 
 Run the application by running
 
@@ -75,13 +71,13 @@ To stop the application, run
 
 `docker compose down`
 
-### Open the application
+# Open the application
 
-##### Listing Lab
+## Listing Lab
 
 The web version will be accessible at:
 
-http://localhost:8069
+**[http://localhost:8069](http://localhost:8069)**
 
 By default, the login is:
 
@@ -90,7 +86,7 @@ By default, the login is:
 | Username | admin |
 | Password | admin |
 
-##### RabbitMQ
+## RabbitMQ
 
 http://localhost:15672
 
@@ -101,12 +97,12 @@ By default, the login is:
 | Username | admin |
 | Password | admin |
 
-### Configure the scraper
+# Configure the scraper
 
 After you have started the scraper, you will need to generate an API key and set it in the
 `.env` file with the key `ODOO_API_KEY`.
 
-#### Generate an Odoo API Key
+## Generate an Odoo API Key
 
 Open the application by visiting:
 
@@ -132,7 +128,7 @@ Restart the scraper by hitting `CRTL+C` or running `docker compose down` and `do
 
 You will see a message in the console that indicates the scraper is running successfully.
 
-## Environment variables (quick reference)
+# Environment variables (quick reference)
 
 | Variable             | Default                 | Notes                                                          |
 |----------------------|-------------------------|----------------------------------------------------------------|

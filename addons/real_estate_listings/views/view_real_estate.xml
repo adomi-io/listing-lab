@@ -71,6 +71,88 @@
         </field>
     </record>
 
+    <!-- Real Estate Kanban View (Odoo 19: <list> replaces <tree>) -->
+    <record id="view_real_estate_kanban" model="ir.ui.view">
+        <field name="name">real_estate.kanban</field>
+        <field name="model">real_estate.listing</field>
+        <field name="arch" type="xml">
+            <kanban class="o_real_estate_kanban">
+                <!-- Preload fields for use in templates -->
+                <field name="primary_image_id_preview_url"/>
+                <field name="address"/>
+                <field name="city"/>
+                <field name="state"/>
+                <field name="price"/>
+                <field name="bedrooms"/>
+                <field name="baths_total"/>
+                <field name="sqft"/>
+                <field name="market_status"/>
+                <field name="status"/>
+                <field name="user_tag_ids"/>
+                <field name="is_favorite"/>
+
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex flex-column">
+                            <!-- Image + favorite -->
+                            <div class="position-relative">
+                                <img t-att-src="record.primary_image_id_preview_url.raw_value"
+                                     alt="Primary Photo"
+                                     class="img-fluid rounded-top"/>
+                            </div>
+
+                            <!-- Body -->
+                            <div class="p-2 d-flex flex-column gap-1">
+                                <!-- Address -->
+                                <div class="d-flex">
+                                    <field name="is_favorite"
+                                           widget="boolean_favorite"
+                                           nolabel="1"/>
+
+                                    <div class="fw-semibold text-truncate" title="Address">
+                                        <t t-esc="record.address.value"/>
+                                    </div>
+                                </div>
+
+                                <!-- Price and quick stats -->
+                                <div class="d-flex align-items-center justify-content-between gap-2">
+                                    <div class="fw-bold">
+                                        <field name="price" widget="monetary_no_cents" nolabel="1"/>
+                                    </div>
+                                    <div class="text-muted small text-nowrap">
+                                        <t t-if="record.bedrooms.value != null">
+                                            <t t-esc="record.bedrooms.value"/> bd
+                                        </t>
+                                        <t t-if="record.baths_total.value != null"> · <t
+                                                t-esc="record.baths_total.value"/> ba</t>
+                                        <t t-if="record.sqft.value"> · <t t-esc="record.sqft.value"/> sqft</t>
+                                    </div>
+                                </div>
+
+                                <!-- Status badges -->
+                                <div class="d-flex flex-wrap gap-1">
+                                    <span t-if="record.status.value" class="badge bg-secondary text-uppercase">
+                                        <t t-esc="record.status.value"/>
+                                    </span>
+                                    <span t-if="record.market_status.value"
+                                          t-att-class="'badge text-uppercase ' + (['pending','contingent'].includes(record.market_status.value) ? 'bg-warning text-dark' : (record.market_status.value === 'active' ? 'bg-success' : 'bg-secondary'))">
+                                        <t t-esc="record.market_status.value"/>
+                                    </span>
+                                </div>
+
+                                <!-- User tags -->
+                                <div class="mt-1">
+                                    <field name="user_tag_ids" widget="many2many_tags" nolabel="1"
+                                           options="{'color_field': 'color'}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
     <!-- Real Estate Form View -->
     <record id="view_real_estate_form" model="ir.ui.view">
         <field name="name">real_estate.form</field>
@@ -536,7 +618,7 @@
     <record id="action_real_estate" model="ir.actions.act_window">
         <field name="name">Real Estate Listings</field>
         <field name="res_model">real_estate.listing</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="context">{'search_default_interested': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
