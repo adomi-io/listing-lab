@@ -94,8 +94,8 @@ By default, the login is:
 
 | Field    | Value |
 |----------|-------|
-| Username | admin |
-| Password | admin |
+| Username | guest |
+| Password | guest |
 
 # Configure the scraper
 
