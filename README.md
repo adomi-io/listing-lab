@@ -11,6 +11,11 @@ your view of a property stays current without constant refreshing.
 Under the hood, this repo includes the Listing Lab Odoo addon, a small scraper service, and a Docker Compose setup to
 run everything locally.
 
+> Are you looking to make apps like this easily?
+> Adomi's Odoo Docker container makes developing and running Odoo
+> applications fun and easy.
+> **[Read more about our Odoo docker image](https://github.com/adomi-io/odoo)**.
+
 ## Highlights
 
 - 🏠 Property listing management inside Odoo
@@ -31,11 +36,6 @@ run everything locally.
 ![Overview of Listing Lab](./docs/static/img/demo.png)
 
 To scrape a property, simply copy the address into the Address field, and click "Update Property"
-
-> Are you looking to make apps like this easily?
-> Adomi's Odoo Docker container makes developing and running Odoo
-> applications fun and easy.
-> **[Read more about our Odoo docker image](https://github.com/adomi-io/odoo)**.
 
 # Getting started
 
