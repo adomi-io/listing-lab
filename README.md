@@ -157,6 +157,13 @@ You will see a message in the console that indicates the scraper is running succ
 4) Records are created/updated in Odoo
 5) Odoo UI uses live record data and reflects the latest photos, popularity, and details
 
+## Updating
+
+If you are updating your application, be sure to upgrade the UI by clicking the square icon in the top left, selecting
+"Apps" and upgrading the Adomi - Listing Lab application.
+
+![Upgrade the Listing Lab Application](docs/static/img/upgrade.png)
+
 ## About Adomi
 
 Listing Lab is an Adomi project. We build helpful tools on Odoo. This one is made for individuals and families first. If

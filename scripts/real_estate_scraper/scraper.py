@@ -1141,7 +1141,8 @@ class PropertyScraper:
         address_components = {}
 
         if 'address' in prop:
-            address = prop.get('address', {})
+            # Handle case where key exists but value is None
+            address = prop.get('address') or {}
 
             address_components = {
                 'street': address.get('street', ''),
@@ -1156,7 +1157,8 @@ class PropertyScraper:
         description_components = {}
 
         if 'description' in prop:
-            desc = prop.get('description', {})
+            # Handle case where key exists but value is None
+            desc = prop.get('description') or {}
 
             description_components = {
                 'beds': desc.get('beds', 0),
@@ -1270,20 +1272,23 @@ class PropertyScraper:
             # office_phones removed in Odoo model
 
             # Tax Record Information
-            'tax_record_apn': prop.get('tax_record', {}).get('apn', ''),
-            'tax_record_cl_id': prop.get('tax_record', {}).get('cl_id', ''),
-            'tax_record_last_update_date': self.format_datetime(prop.get('tax_record', {}).get('last_update_date', '')),
-            'tax_record_public_record_id': prop.get('tax_record', {}).get('public_record_id', ''),
-            'tax_record_tax_parcel_id': prop.get('tax_record', {}).get('tax_parcel_id', ''),
+            # Use `or {}` so that if the key exists but is None, we still get an empty dict
+            'tax_record_apn': (prop.get('tax_record') or {}).get('apn', ''),
+            'tax_record_cl_id': (prop.get('tax_record') or {}).get('cl_id', ''),
+            'tax_record_last_update_date': self.format_datetime(
+                (prop.get('tax_record') or {}).get('last_update_date', '')),
+            'tax_record_public_record_id': (prop.get('tax_record') or {}).get('public_record_id', ''),
+            'tax_record_tax_parcel_id': (prop.get('tax_record') or {}).get('tax_parcel_id', ''),
 
             # Property Flags
-            'is_coming_soon': bool(prop.get('flags', {}).get('is_coming_soon', False)),
-            'is_contingent': bool(prop.get('flags', {}).get('is_contingent', False)),
-            'is_foreclosure': bool(prop.get('flags', {}).get('is_foreclosure', False)),
-            'is_new_construction': bool(prop.get('flags', {}).get('is_new_construction', False)),
-            'is_new_listing': bool(prop.get('flags', {}).get('is_new_listing', False)),
-            'is_pending': bool(prop.get('flags', {}).get('is_pending', False)),
-            'is_price_reduced': bool(prop.get('flags', {}).get('is_price_reduced', False)),
+            # Same safeguard for flags
+            'is_coming_soon': bool((prop.get('flags') or {}).get('is_coming_soon', False)),
+            'is_contingent': bool((prop.get('flags') or {}).get('is_contingent', False)),
+            'is_foreclosure': bool((prop.get('flags') or {}).get('is_foreclosure', False)),
+            'is_new_construction': bool((prop.get('flags') or {}).get('is_new_construction', False)),
+            'is_new_listing': bool((prop.get('flags') or {}).get('is_new_listing', False)),
+            'is_pending': bool((prop.get('flags') or {}).get('is_pending', False)),
+            'is_price_reduced': bool((prop.get('flags') or {}).get('is_price_reduced', False)),
 
             # Additional Information
             'pet_policy': json.dumps(prop.get('pet_policy', {})) if prop.get('pet_policy') else '',
@@ -1292,10 +1297,15 @@ class PropertyScraper:
             'open_houses': json.dumps(prop.get('open_houses', [])) if prop.get('open_houses') else '',
             'units': json.dumps(prop.get('units', [])) if prop.get('units') else '',
             'current_estimates': json.dumps(
-                self.convert_datetimes_for_json(prop.get('current_estimates', {}))) if prop.get(
-                'current_estimates') else '',
-            'estimates': json.dumps(self.convert_datetimes_for_json(prop.get('estimates', {}))) if prop.get(
-                'estimates') else '',
+                self.convert_datetimes_for_json(
+                    prop.get('current_estimates', {})
+                )
+            ) if prop.get('current_estimates') else '',
+            'estimates': json.dumps(
+                self.convert_datetimes_for_json(
+                    prop.get('estimates', {})
+                )
+            ) if prop.get('estimates') else '',
         }
 
         # Add property tags if they exist
