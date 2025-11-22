@@ -65,8 +65,6 @@ Clone this repository, and open a terminal in the root directory.
 
 ## Configure your instance
 
-Copy environment variables
-
 Copy the `.env.example` file to `.env`
 
 You can run the following command:
