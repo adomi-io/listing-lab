@@ -40,7 +40,7 @@ To scrape a property, copy the address into the Address field, and click "Update
 
 # Getting started
 
-> [!WARN]
+> [!WARNING]
 > This application is made to run via Docker.
 > You can download Docker Desktop if you are on Windows or Mac
 >
