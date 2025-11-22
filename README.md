@@ -13,7 +13,7 @@ run everything locally.
 
 > [!TIP]
 > Are you looking to make apps like this easily?
-> Adomi's Odoo Docker container makes developing and running Odoo
+> Adomi's Odoo Docker image makes developing and running Odoo
 > applications fun and easy.
 > **[Read more about our Odoo docker image](https://github.com/adomi-io/odoo)**.
 
@@ -50,7 +50,7 @@ To scrape a property, copy the address into the Address field, and click "Update
 
 This project includes a `docker-compose.yml` file that will start the application and the scraper.
 
-See the [docker](./docker) section for more details.
+See the [docker](./docker) folder for more information.
 
 Download the [docker-compose.yml](./docker/docker-compose.yml), open a terminal in the folder you downloaded it to, and
 run `docker compose up` to start the application.
