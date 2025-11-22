@@ -81,7 +81,7 @@ services:
       RABBITMQ_EXCHANGE: ${RABBITMQ_EXCHANGE:-property_exchange}
       RABBITMQ_ROUTING_KEY: ${RABBITMQ_ROUTING_KEY:-property.scrape}
       ODOO_URL: http://listing_lab:8069
-      LOG_LEVEL: ${LOG_LEVEL:-debug}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
     volumes:
       - ./scripts/real_estate_scraper:/app
     env_file:
