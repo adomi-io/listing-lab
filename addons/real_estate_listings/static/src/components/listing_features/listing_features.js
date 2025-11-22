@@ -160,7 +160,15 @@ export class ListingFeatures extends Component {
         const lists = this.state.groups[parent]?.[category] || [];
         const acc = [];
         for (const row of lists) acc.push(...row.items);
-        return acc;
+        // Deduplicate while preserving order to avoid Owl duplicate t-key errors
+        // Example duplicate observed: "Bedroom Level: Second"
+        const seen = new Set();
+        return acc.filter((val) => {
+            const key = String(val);
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
     }
 
     async onAddFeature() {
