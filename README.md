@@ -1,7 +1,7 @@
 > [!TIP]
 > Are you looking to make apps like this easily?
 > Check out our open-source, community-driven Odoo Docker image.
-> **[Check out adomi-io/odoo](https://github.com/adomi-io/odoo)**.
+> **[domi-io/odoo](https://github.com/adomi-io/odoo)**.
 
 <p align="center">
   <img src="/addons/real_estate_listings/static/description/icon.png" width="240" />
