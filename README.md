@@ -1,6 +1,7 @@
 > [!TIP]
 > Are you looking to make apps like this easily?
-> Check out our open-source, community-driven Odoo Docker image.
+> Check out our open-source, community-driven Odoo Docker image
+>
 > **[adomi-io/odoo](https://github.com/adomi-io/odoo)**.
 
 <p align="center">
