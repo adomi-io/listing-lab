@@ -53,7 +53,6 @@ RABBITMQ_ROUTING_KEY = os.getenv('RABBITMQ_ROUTING_KEY', 'property.scrape')
 # Odoo connection parameters
 ODOO_URL = os.getenv('ODOO_URL', 'http://localhost:8069')
 ODOO_DB = os.getenv('ODOO_DB_NAME', 'odoo')
-# Do not provide a default here — we want to ensure the user sets a real API key
 ODOO_API_KEY = os.getenv('ODOO_API_KEY')
 
 
@@ -1423,7 +1422,7 @@ class PropertyScraper:
                     continue
 
         logger.debug(f"Filtered Odoo property record data-mapping: {filtered_property}")
-                            
+
         return filtered_property
 
     def format_address(self, address_components: Dict[str, str]) -> str:
