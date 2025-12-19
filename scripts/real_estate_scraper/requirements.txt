@@ -1,5 +1,5 @@
 pika==1.3.2
 python-dotenv==1.0.0
-homeharvest==0.8.7
+homeharvest==0.8.11
 pandas>=2.0.0
 requests>=2.31.0
